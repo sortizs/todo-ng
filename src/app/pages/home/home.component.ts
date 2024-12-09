@@ -42,4 +42,8 @@ export class HomeComponent {
   deleteTask(id: number) {
     this.tasks.update((tasks) => tasks.filter((task) => task.id !== id));
   }
+
+  get remainingTasks() {
+    return this.tasks().filter((t) => !t.done).length;
+  }
 }
